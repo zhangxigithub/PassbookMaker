@@ -27,6 +27,7 @@
     {
         EditViewController *editViewController = segue.destinationViewController;
         NSIndexPath *path = [self.table indexPathForSelectedRow];
+        [self.table deselectRowAtIndexPath:path animated:YES];
         editViewController.store = localData[path.row];
     }
 }

@@ -29,6 +29,7 @@
 		438CBE85183E391700904F4B /* DataCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 438CBE84183E391700904F4B /* DataCenter.m */; };
 		438CBE89183E3A0300904F4B /* StoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 438CBE88183E3A0300904F4B /* StoreCell.m */; };
 		438CBE8B183E50A400904F4B /* Stores.json in Resources */ = {isa = PBXBuildFile; fileRef = 438CBE8A183E50A400904F4B /* Stores.json */; };
+		438CBE96183E754D00904F4B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 438CBE98183E754D00904F4B /* Localizable.strings */; };
 		5AD2FB2FAC874AD2ADC2B5DD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50226962E2D84846B2DBAEA8 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,8 @@
 		438CBE87183E3A0300904F4B /* StoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreCell.h; sourceTree = "<group>"; };
 		438CBE88183E3A0300904F4B /* StoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreCell.m; sourceTree = "<group>"; };
 		438CBE8A183E50A400904F4B /* Stores.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Stores.json; sourceTree = "<group>"; };
+		438CBE97183E754D00904F4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		438CBE99183E756500904F4B /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		50226962E2D84846B2DBAEA8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -166,6 +169,7 @@
 			children = (
 				3325E6C4183C9E4600276C1B /* PassMaker-Info.plist */,
 				3325E6C5183C9E4700276C1B /* InfoPlist.strings */,
+				438CBE98183E754D00904F4B /* Localizable.strings */,
 				3325E6C8183C9E4700276C1B /* main.m */,
 				3325E6CA183C9E4700276C1B /* PassMaker-Prefix.pch */,
 			);
@@ -260,6 +264,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = zhangxi;
 				TargetAttributes = {
+					3325E6B8183C9E4600276C1B = {
+						DevelopmentTeam = 54TGPDSGF2;
+					};
 					3325E6D9183C9E4700276C1B = {
 						TestTargetID = 3325E6B8183C9E4600276C1B;
 					};
@@ -289,6 +296,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				438CBE96183E754D00904F4B /* Localizable.strings in Resources */,
 				438CBE7E183D060700904F4B /* Images.xcassets in Resources */,
 				3325E6C7183C9E4700276C1B /* InfoPlist.strings in Resources */,
 				3325E6D0183C9E4700276C1B /* Main.storyboard in Resources */,
@@ -399,6 +407,15 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
+		438CBE98183E754D00904F4B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				438CBE97183E754D00904F4B /* Base */,
+				438CBE99183E756500904F4B /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -480,10 +497,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PassMaker/PassMaker-Prefix.pch";
 				INFOPLIST_FILE = "PassMaker/PassMaker-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -494,10 +514,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PassMaker/PassMaker-Prefix.pch";
 				INFOPLIST_FILE = "PassMaker/PassMaker-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -8,14 +8,14 @@
 
 #import "AppDelegate.h"
 #import "DataCenter.h"
-
+#import <MobClick.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [[DataCenter sharedDataCenter] update];
-    
+    [MobClick startWithAppkey:@"528e351256240bb52e06899a"];
     return YES;
 }
 							
