@@ -57,6 +57,7 @@
           fromImage: (UIImage*) image
 {
     [readerView stop];
+    
     const zbar_symbol_t *symbol = zbar_symbol_set_first_symbol(symbols.zbarSymbolSet);
     NSString *symbolStr = [NSString stringWithUTF8String: zbar_symbol_get_data(symbol)];
     
@@ -64,7 +65,7 @@
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
 
     
-    NSString *string = [NSString stringWithFormat:@"http://zxapi.sinaapp.com/passbook/generate.php?code=%@",symbolStr];
+    NSString *string = [NSString stringWithFormat:@"http://zxapi.sinaapp.com/passbook/generate.php?code=%@&style=0",symbolStr];
     
     [manager GET:string
       parameters:nil
@@ -75,17 +76,21 @@
 
 
              PKPass *pass = [[PKPass alloc] initWithData:operation.responseData error:&error];
+             if(pass!= nil)
+             {
              PKAddPassesViewController *addVC = [[PKAddPassesViewController alloc] initWithPass:pass];
              [self presentViewController:addVC animated:YES completion:^{
 
              }];
+             }
 
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
-    
-    
-    
 }
+
+
 @end
+
+
