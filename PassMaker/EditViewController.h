@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Store.h"
 
 @interface EditViewController : UIViewController
+
+@property(nonatomic,strong) Store *store;
+
+
+@property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
+@property (weak, nonatomic) IBOutlet UITextField *nameTextFeild;
+
+
 
 @end

@@ -1,0 +1,80 @@
+//
+//  DataCenter.m
+//  PassMaker
+//
+//  Created by 张 玺 on 13-11-21.
+//  Copyright (c) 2013年 zhangxi. All rights reserved.
+//
+
+#define kStoreKey @"kStoreKey"
+
+
+#import "DataCenter.h"
+#import <AFNetworking.h>
+
+
+@implementation DataCenter
+
+static DataCenter *dataCenter;
++(DataCenter *)sharedDataCenter
+{
+    if(dataCenter == nil)
+    {
+        dataCenter = [[DataCenter alloc] init];
+    }
+    
+    return dataCenter;
+}
+
+-(void)update
+{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:@"http://zxapi.sinaapp.com/passbook/update.php"
+      parameters:nil
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+}
+-(NSArray *)defaultStores
+{
+    return  [[NSUserDefaults standardUserDefaults] objectForKey:kStoreKey];
+}
+
+-(NSArray *)localStores
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"Stores" ofType:@"json"];
+    NSData *data = [[NSData alloc] initWithContentsOfFile:path];
+    
+    return [NSJSONSerialization JSONObjectWithData:data
+                                           options:NSJSONReadingAllowFragments error:nil];
+}
+-(NSArray *)storesWithArray:(NSArray *)array
+{
+    NSMutableArray *result = [NSMutableArray array];
+    for(NSDictionary *item in array)
+    {
+        Store *store = [[Store alloc] initWithJSON:item];
+        [result addObject:store];
+    }
+    return result;
+}
+-(NSArray *)stores
+{
+    if(_stores == nil)
+    {
+        NSArray *defaultStores = [self defaultStores];
+        if(defaultStores == nil)
+        {
+            _stores = [self storesWithArray:[self localStores]];
+        }else
+        {
+            _stores = [self storesWithArray:defaultStores];
+        }
+    }
+    return _stores;
+}
+
+
+@end

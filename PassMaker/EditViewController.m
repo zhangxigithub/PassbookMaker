@@ -7,10 +7,8 @@
 //
 
 #import "EditViewController.h"
+#import <UIImageView+AFNetworking.h>
 
-@interface EditViewController ()
-
-@end
 
 @implementation EditViewController
 
@@ -26,13 +24,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    [self setStore:_store];
 }
-
+-(void)setStore:(Store *)store
+{
+    _store = store;
+    
+    [self.logoImageView setImageWithURL:store.logo];
+    [self.nameTextFeild setText:store.name];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

@@ -6,13 +6,11 @@
 //  Copyright (c) 2013年 zhangxi. All rights reserved.
 //
 
-#import "TypeViewController.h"
+#import "StoreViewController.h"
+#import "EditViewController.h"
 
-@interface TypeViewController ()
 
-@end
-
-@implementation TypeViewController
+@implementation StoreViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -22,24 +20,33 @@
     }
     return self;
 }
-
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSLog(@"%@",segue);
+    if([segue.identifier isEqualToString:@"push.edit"])
+    {
+        EditViewController *editViewController = segue.destinationViewController;
+        NSIndexPath *path = [self.table indexPathForSelectedRow];
+        editViewController.store = localData[path.row];
+    }
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    localData = [[DataCenter sharedDataCenter] stores];
 	// Do any additional setup after loading the view.
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return localData.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"typeCell" forIndexPath:indexPath];
+    StoreCell *cell = (StoreCell *)[tableView dequeueReusableCellWithIdentifier:@"typeCell" forIndexPath:indexPath];
 
-    
+    cell.store = localData[indexPath.row];
     return cell;
 }
 

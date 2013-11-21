@@ -7,12 +7,15 @@
 //
 
 #import "AppDelegate.h"
+#import "DataCenter.h"
+
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    [[DataCenter sharedDataCenter] update];
+    
     return YES;
 }
 							

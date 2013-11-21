@@ -22,9 +22,13 @@
 		3325E6E8183C9E4700276C1B /* PassMakerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3325E6E7183C9E4700276C1B /* PassMakerTests.m */; };
 		3325E6F2183C9E7100276C1B /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3325E6F1183C9E7100276C1B /* PassKit.framework */; };
 		438CBE76183D044300904F4B /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 438CBE75183D044300904F4B /* MenuViewController.m */; };
-		438CBE79183D047400904F4B /* TypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 438CBE78183D047400904F4B /* TypeViewController.m */; };
+		438CBE79183D047400904F4B /* StoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 438CBE78183D047400904F4B /* StoreViewController.m */; };
 		438CBE7C183D048D00904F4B /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 438CBE7B183D048D00904F4B /* EditViewController.m */; };
 		438CBE7E183D060700904F4B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 438CBE7D183D060700904F4B /* Images.xcassets */; };
+		438CBE82183E36E500904F4B /* Store.m in Sources */ = {isa = PBXBuildFile; fileRef = 438CBE81183E36E500904F4B /* Store.m */; };
+		438CBE85183E391700904F4B /* DataCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 438CBE84183E391700904F4B /* DataCenter.m */; };
+		438CBE89183E3A0300904F4B /* StoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 438CBE88183E3A0300904F4B /* StoreCell.m */; };
+		438CBE8B183E50A400904F4B /* Stores.json in Resources */ = {isa = PBXBuildFile; fileRef = 438CBE8A183E50A400904F4B /* Stores.json */; };
 		5AD2FB2FAC874AD2ADC2B5DD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50226962E2D84846B2DBAEA8 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -61,11 +65,18 @@
 		3325E6F1183C9E7100276C1B /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
 		438CBE74183D044300904F4B /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		438CBE75183D044300904F4B /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
-		438CBE77183D047400904F4B /* TypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeViewController.h; sourceTree = "<group>"; };
-		438CBE78183D047400904F4B /* TypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypeViewController.m; sourceTree = "<group>"; };
+		438CBE77183D047400904F4B /* StoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreViewController.h; sourceTree = "<group>"; };
+		438CBE78183D047400904F4B /* StoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreViewController.m; sourceTree = "<group>"; };
 		438CBE7A183D048D00904F4B /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
 		438CBE7B183D048D00904F4B /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
 		438CBE7D183D060700904F4B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		438CBE80183E36E500904F4B /* Store.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Store.h; sourceTree = "<group>"; };
+		438CBE81183E36E500904F4B /* Store.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Store.m; sourceTree = "<group>"; };
+		438CBE83183E391700904F4B /* DataCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataCenter.h; sourceTree = "<group>"; };
+		438CBE84183E391700904F4B /* DataCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataCenter.m; sourceTree = "<group>"; };
+		438CBE87183E3A0300904F4B /* StoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreCell.h; sourceTree = "<group>"; };
+		438CBE88183E3A0300904F4B /* StoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreCell.m; sourceTree = "<group>"; };
+		438CBE8A183E50A400904F4B /* Stores.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Stores.json; sourceTree = "<group>"; };
 		50226962E2D84846B2DBAEA8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -131,6 +142,8 @@
 		3325E6C2183C9E4600276C1B /* PassMaker */ = {
 			isa = PBXGroup;
 			children = (
+				438CBE86183E39E900904F4B /* View */,
+				438CBE7F183E36B100904F4B /* model */,
 				3325E6CB183C9E4700276C1B /* AppDelegate.h */,
 				3325E6CC183C9E4700276C1B /* AppDelegate.m */,
 				3325E6CE183C9E4700276C1B /* Main.storyboard */,
@@ -138,8 +151,8 @@
 				3325E6D2183C9E4700276C1B /* ViewController.m */,
 				438CBE74183D044300904F4B /* MenuViewController.h */,
 				438CBE75183D044300904F4B /* MenuViewController.m */,
-				438CBE77183D047400904F4B /* TypeViewController.h */,
-				438CBE78183D047400904F4B /* TypeViewController.m */,
+				438CBE77183D047400904F4B /* StoreViewController.h */,
+				438CBE78183D047400904F4B /* StoreViewController.m */,
 				438CBE7A183D048D00904F4B /* EditViewController.h */,
 				438CBE7B183D048D00904F4B /* EditViewController.m */,
 				438CBE7D183D060700904F4B /* Images.xcassets */,
@@ -175,6 +188,27 @@
 				3325E6E4183C9E4700276C1B /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		438CBE7F183E36B100904F4B /* model */ = {
+			isa = PBXGroup;
+			children = (
+				438CBE80183E36E500904F4B /* Store.h */,
+				438CBE81183E36E500904F4B /* Store.m */,
+				438CBE83183E391700904F4B /* DataCenter.h */,
+				438CBE84183E391700904F4B /* DataCenter.m */,
+				438CBE8A183E50A400904F4B /* Stores.json */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		438CBE86183E39E900904F4B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				438CBE87183E3A0300904F4B /* StoreCell.h */,
+				438CBE88183E3A0300904F4B /* StoreCell.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +292,7 @@
 				438CBE7E183D060700904F4B /* Images.xcassets in Resources */,
 				3325E6C7183C9E4700276C1B /* InfoPlist.strings in Resources */,
 				3325E6D0183C9E4700276C1B /* Main.storyboard in Resources */,
+				438CBE8B183E50A400904F4B /* Stores.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,9 +344,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				438CBE79183D047400904F4B /* TypeViewController.m in Sources */,
+				438CBE89183E3A0300904F4B /* StoreCell.m in Sources */,
+				438CBE79183D047400904F4B /* StoreViewController.m in Sources */,
 				3325E6D3183C9E4700276C1B /* ViewController.m in Sources */,
+				438CBE85183E391700904F4B /* DataCenter.m in Sources */,
 				3325E6CD183C9E4700276C1B /* AppDelegate.m in Sources */,
+				438CBE82183E36E500904F4B /* Store.m in Sources */,
 				3325E6C9183C9E4700276C1B /* main.m in Sources */,
 				438CBE7C183D048D00904F4B /* EditViewController.m in Sources */,
 				438CBE76183D044300904F4B /* MenuViewController.m in Sources */,
