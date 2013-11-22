@@ -46,23 +46,23 @@
     }
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    NSLog(@"%@",segue);
-    if([segue.identifier isEqualToString:@"push.scan"])
-    {
-        
-        if([code isEqualToString:@""] == NO)
-        {
-        [self creatPassbook:self.store.storeID
-                       name:self.store.name
-                       code:code
-                       type:type];
-        }
-        //ScanViewController *scanViewController = segue.destinationViewController;
-        //scanViewController.delegate = self;
-    }
-}
+//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    NSLog(@"%@",segue);
+//    if([segue.identifier isEqualToString:@"push.scan"])
+//    {
+//        
+//        if([code isEqualToString:@""] == NO)
+//        {
+//        [self creatPassbook:self.store.storeID
+//                       name:self.store.name
+//                       code:code
+//                       type:type];
+//        }
+//        //ScanViewController *scanViewController = segue.destinationViewController;
+//        //scanViewController.delegate = self;
+//    }
+//}
 -(void)didGetCode:(NSString *)theCode type:(NSString *)theType
 {
     NSLog(@"%@\n%@",theCode,theType);
@@ -77,7 +77,16 @@
                    type:theType];
 }
 
-
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    self.codeTextFeild.delegate = nil;
+}
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    self.codeTextFeild.delegate = self;
+}
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
     if(textField == _codeTextFeild && input == NO)
@@ -88,14 +97,18 @@
                                destructiveButtonTitle:nil
                                     otherButtonTitles:@"扫描",@"手动输入", nil];
         [action showInView:self.view];
+        
         return NO;
     }
     return YES;
 }
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {
+    if(textField == _codeTextFeild)
+    {
     code = textField.text;
     input = NO;
+    }
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
@@ -110,8 +123,10 @@
             ScanViewController *scanViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"scan"];
             scanViewController.delegate = self;
             [self.navigationController pushViewController:scanViewController animated:YES];
+            
+            [self.codeTextFeild resignFirstResponder];
+             break;
         }
-            break;
         case 1:
             input = YES;
             [self.codeTextFeild becomeFirstResponder];
@@ -217,6 +232,13 @@
                        name:self.nameTextFeild.text
                        code:self.codeTextFeild.text
                        type:type];
+    }else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"生成失败"
+                                                        message:@"请输入正确的卡片名称和编号."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"知道了" otherButtonTitles:nil];
+        [alert show];
     }
 }
 @end
