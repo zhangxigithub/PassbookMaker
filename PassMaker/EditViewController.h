@@ -8,15 +8,28 @@
 
 #import <UIKit/UIKit.h>
 #import "Store.h"
+#import <MBProgressHUD.h>
+#import "ScanViewController.h"
+#import <PassKit/PassKit.h>
 
-@interface EditViewController : UIViewController
-
+@interface EditViewController : UIViewController<ScanViewControllerDelegate,UITextFieldDelegate,UIActionSheetDelegate,PKAddPassesViewControllerDelegate,UIAlertViewDelegate>
+{
+    MBProgressHUD *hud;
+    UIActionSheet *action;
+    BOOL input;
+    
+    
+    NSString *code;
+    NSString *type;
+}
 @property(nonatomic,strong) Store *store;
 
 
 @property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextFeild;
+@property (weak, nonatomic) IBOutlet UITextField *codeTextFeild;
 
 
+- (IBAction)creat:(id)sender;
 
 @end

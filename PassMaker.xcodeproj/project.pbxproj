@@ -14,7 +14,7 @@
 		3325E6C9183C9E4700276C1B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3325E6C8183C9E4700276C1B /* main.m */; };
 		3325E6CD183C9E4700276C1B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3325E6CC183C9E4700276C1B /* AppDelegate.m */; };
 		3325E6D0183C9E4700276C1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3325E6CE183C9E4700276C1B /* Main.storyboard */; };
-		3325E6D3183C9E4700276C1B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3325E6D2183C9E4700276C1B /* ViewController.m */; };
+		3325E6D3183C9E4700276C1B /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3325E6D2183C9E4700276C1B /* ScanViewController.m */; };
 		3325E6DC183C9E4700276C1B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3325E6DB183C9E4700276C1B /* XCTest.framework */; };
 		3325E6DD183C9E4700276C1B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3325E6BC183C9E4600276C1B /* Foundation.framework */; };
 		3325E6DE183C9E4700276C1B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3325E6C0183C9E4600276C1B /* UIKit.framework */; };
@@ -56,8 +56,8 @@
 		3325E6CB183C9E4700276C1B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3325E6CC183C9E4700276C1B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3325E6CF183C9E4700276C1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3325E6D1183C9E4700276C1B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3325E6D2183C9E4700276C1B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3325E6D1183C9E4700276C1B /* ScanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScanViewController.h; sourceTree = "<group>"; };
+		3325E6D2183C9E4700276C1B /* ScanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScanViewController.m; sourceTree = "<group>"; };
 		3325E6DA183C9E4700276C1B /* PassMakerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PassMakerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3325E6DB183C9E4700276C1B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		3325E6E3183C9E4700276C1B /* PassMakerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PassMakerTests-Info.plist"; sourceTree = "<group>"; };
@@ -78,8 +78,8 @@
 		438CBE87183E3A0300904F4B /* StoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreCell.h; sourceTree = "<group>"; };
 		438CBE88183E3A0300904F4B /* StoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreCell.m; sourceTree = "<group>"; };
 		438CBE8A183E50A400904F4B /* Stores.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Stores.json; sourceTree = "<group>"; };
-		438CBE97183E754D00904F4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		438CBE99183E756500904F4B /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		438CBE97183E754D00904F4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		438CBE99183E756500904F4B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		50226962E2D84846B2DBAEA8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -150,8 +150,8 @@
 				3325E6CB183C9E4700276C1B /* AppDelegate.h */,
 				3325E6CC183C9E4700276C1B /* AppDelegate.m */,
 				3325E6CE183C9E4700276C1B /* Main.storyboard */,
-				3325E6D1183C9E4700276C1B /* ViewController.h */,
-				3325E6D2183C9E4700276C1B /* ViewController.m */,
+				3325E6D1183C9E4700276C1B /* ScanViewController.h */,
+				3325E6D2183C9E4700276C1B /* ScanViewController.m */,
 				438CBE74183D044300904F4B /* MenuViewController.h */,
 				438CBE75183D044300904F4B /* MenuViewController.m */,
 				438CBE77183D047400904F4B /* StoreViewController.h */,
@@ -354,7 +354,7 @@
 			files = (
 				438CBE89183E3A0300904F4B /* StoreCell.m in Sources */,
 				438CBE79183D047400904F4B /* StoreViewController.m in Sources */,
-				3325E6D3183C9E4700276C1B /* ViewController.m in Sources */,
+				3325E6D3183C9E4700276C1B /* ScanViewController.m in Sources */,
 				438CBE85183E391700904F4B /* DataCenter.m in Sources */,
 				3325E6CD183C9E4700276C1B /* AppDelegate.m in Sources */,
 				438CBE82183E36E500904F4B /* Store.m in Sources */,

@@ -17,6 +17,8 @@
     [[DataCenter sharedDataCenter] update];
     [MobClick startWithAppkey:@"528e351256240bb52e06899a"];
     return YES;
+    
+
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

@@ -33,6 +33,11 @@ static DataCenter *dataCenter;
       parameters:nil
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
+             
+             [[NSUserDefaults standardUserDefaults] setObject:responseObject forKey:kStoreKey];
+             [[NSUserDefaults standardUserDefaults] synchronize];
+             
+             
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
@@ -58,6 +63,8 @@ static DataCenter *dataCenter;
         Store *store = [[Store alloc] initWithJSON:item];
         [result addObject:store];
     }
+    
+    [result addObject:[[Store alloc] initWithCustomStore]];
     return result;
 }
 -(NSArray *)stores
@@ -67,7 +74,12 @@ static DataCenter *dataCenter;
         NSArray *defaultStores = [self defaultStores];
         if(defaultStores == nil)
         {
-            _stores = [self storesWithArray:[self localStores]];
+            
+            NSArray *data = [self localStores];
+            _stores = [self storesWithArray:data];
+            
+            [[NSUserDefaults standardUserDefaults] setObject:data forKey:kStoreKey];
+            [[NSUserDefaults standardUserDefaults] synchronize];
         }else
         {
             _stores = [self storesWithArray:defaultStores];

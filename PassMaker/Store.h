@@ -10,12 +10,15 @@
 
 @interface Store : NSObject
 
-
+@property (nonatomic,copy)   NSString *storeID;
 @property (nonatomic,copy)   NSString *type;
 @property (nonatomic,copy)   NSString *name;
 @property (nonatomic,copy)   NSString *description;
 @property (nonatomic,strong) NSURL    *logo;
 
+@property (nonatomic,assign) BOOL      custom;
+
 
 -(id)initWithJSON:(NSDictionary *)json;
+-(id)initWithCustomStore;
 @end

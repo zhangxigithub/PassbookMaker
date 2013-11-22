@@ -5,10 +5,16 @@
 //  Created by 张 玺 on 13-11-20.
 //  Copyright (c) 2013年 zhangxi. All rights reserved.
 //
+#define kTagShowPassbook  1989
+
+
 
 #import "EditViewController.h"
 #import <UIImageView+AFNetworking.h>
-
+#import "ScanViewController.h"
+#import <AFNetworking.h>
+#import <PassKit/PassKit.h>
+#import <MBProgressHUD.h>
 
 @implementation EditViewController
 
@@ -24,22 +30,193 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    input = NO;
+    type = @"BCGcode128";
     [self setStore:_store];
 }
 -(void)setStore:(Store *)store
 {
     _store = store;
-    
+    self.title = store.name;
     [self.logoImageView setImageWithURL:store.logo];
-    [self.nameTextFeild setText:store.name];
+    
+    if(store.custom == NO)
+    {
+        [self.nameTextFeild setText:store.name];
+    }
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSLog(@"%@",segue);
+    if([segue.identifier isEqualToString:@"push.scan"])
+    {
+        
+        if([code isEqualToString:@""] == NO)
+        {
+        [self creatPassbook:self.store.storeID
+                       name:self.store.name
+                       code:code
+                       type:type];
+        }
+        //ScanViewController *scanViewController = segue.destinationViewController;
+        //scanViewController.delegate = self;
+    }
+}
+-(void)didGetCode:(NSString *)theCode type:(NSString *)theType
+{
+    NSLog(@"%@\n%@",theCode,theType);
+    
+    code = theCode;
+    type = theType;
+    
+    self.codeTextFeild.text = theCode;
+    [self creatPassbook:self.store.storeID
+                   name:self.store.name
+                   code:theCode
+                   type:theType];
+}
+
+
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    if(textField == _codeTextFeild && input == NO)
+    {
+        action = [[UIActionSheet alloc] initWithTitle:@"输入二维码"
+                                             delegate:self
+                                    cancelButtonTitle:@"取消"
+                               destructiveButtonTitle:nil
+                                    otherButtonTitles:@"扫描",@"手动输入", nil];
+        [action showInView:self.view];
+        return NO;
+    }
+    return YES;
+}
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    code = textField.text;
+    input = NO;
+}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch (buttonIndex) {
+        case 0:
+        {
+            ScanViewController *scanViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"scan"];
+            scanViewController.delegate = self;
+            [self.navigationController pushViewController:scanViewController animated:YES];
+        }
+            break;
+        case 1:
+            input = YES;
+            [self.codeTextFeild becomeFirstResponder];
+            break;
+            
+        default:
+            break;
+    }
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
+}
+-(void)creatPassbook:(NSString *)storeID name:(NSString *)name code:(NSString *)theCode type:(NSString *)theType
+{
+    NSLog(@"%@",storeID);
+    NSLog(@"%@",name);
+    NSLog(@"%@",theCode);
+    NSLog(@"%@",theType);
+    
+    
+    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeIndeterminate;
+    hud.labelText = @"生成中 ... ";
+    
+    
+    NSDictionary *params = @{@"code":theCode,
+                             @"id":storeID,
+                             @"name":name,
+                             @"type":theType};
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [manager GET:@"http://zxapi.sinaapp.com/passbook/generate.php"
+      parameters:params
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             
+             [hud hide:YES];
+             NSError *error;
+             
+             
+             PKPass *pass = [[PKPass alloc] initWithData:operation.responseData error:&error];
+             if(pass!= nil)
+             {
+                 PKAddPassesViewController *addVC = [[PKAddPassesViewController alloc] initWithPass:pass];
+                 addVC.delegate = self;
+                 [self presentViewController:addVC animated:YES completion:^{
+                     
+                 }];
+             }
+             
+             
+         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             [hud hide:YES];
+             NSLog(@"Error: %@", error);
+         }];
+
+}
+-(void)addPassesViewControllerDidFinish:(PKAddPassesViewController *)controller
+{
+
+    [controller dismissViewControllerAnimated:YES completion:^{
+        
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"添加成功"
+//                                                        message:@"是否打开passbook查看?"
+//                                                       delegate:self
+//                                              cancelButtonTitle:@"不了" otherButtonTitles:@"去看看", nil];
+//        alert.tag = kTagShowPassbook;
+//        [alert show];
+        
+    }];
+    
+
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(alertView.tag == kTagShowPassbook)
+    {
+        switch (buttonIndex) {
+            case 0:
+                
+                break;
+            case 1:
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"shoebox://"]];
+                break;
+                
+            default:
+                break;
+        }
+    }
+    
 }
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
 }
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    [self.view endEditing:YES];
+- (IBAction)creat:(id)sender {
+    
+    if(code != nil && [code isEqualToString:@""] == NO)
+    {
+        [self creatPassbook:self.store.storeID
+                       name:self.nameTextFeild.text
+                       code:self.codeTextFeild.text
+                       type:type];
+    }
 }
-
 @end
