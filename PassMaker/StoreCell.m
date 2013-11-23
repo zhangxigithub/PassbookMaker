@@ -7,7 +7,8 @@
 //
 
 #import "StoreCell.h"
-#import <UIImageView+AFNetworking.h>
+#import <UIImageView+WebCache.h>
+//#import <UIImageView+AFNetworking.h>
 
 @implementation StoreCell
 

@@ -10,7 +10,8 @@
 
 
 #import "EditViewController.h"
-#import <UIImageView+AFNetworking.h>
+#import <UIImageView+WebCache.h>
+//#import <UIImageView+AFNetworking.h>
 #import "ScanViewController.h"
 #import <AFNetworking.h>
 #import <PassKit/PassKit.h>
@@ -91,6 +92,7 @@
 {
     if(textField == _codeTextFeild && input == NO)
     {
+        [self.nameTextFeild resignFirstResponder];
         action = [[UIActionSheet alloc] initWithTitle:@"输入二维码"
                                              delegate:self
                                     cancelButtonTitle:@"取消"
@@ -100,14 +102,19 @@
         
         return NO;
     }
+    if(textField == _codeTextFeild && input == YES)
+    {
+        
+    }
+    
     return YES;
 }
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {
     if(textField == _codeTextFeild)
     {
-    code = textField.text;
-    input = NO;
+        code = textField.text;
+        input = NO;
     }
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
