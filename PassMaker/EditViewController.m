@@ -72,10 +72,16 @@
     type = theType;
     
     self.codeTextFeild.text = theCode;
+    
+    
+    
+    if([self.nameTextFeild.text isEqualToString:@""]==NO)
+    {
     [self creatPassbook:self.store.storeID
-                   name:self.store.name
+                   name:self.nameTextFeild.text
                    code:theCode
                    type:theType];
+    }
 }
 
 -(void)viewWillDisappear:(BOOL)animated
