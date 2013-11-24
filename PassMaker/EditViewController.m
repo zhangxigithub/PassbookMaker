@@ -34,6 +34,22 @@
     input = NO;
     type = @"BCGcode128";
     [self setStore:_store];
+    
+    
+    
+   NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    
+    [center addObserverForName:UIKeyboardDidChangeFrameNotification
+                        object:nil
+                         queue:[NSOperationQueue mainQueue]
+                    usingBlock:^(NSNotification *note) {
+                       
+                        
+                        NSLog(@"%@",note.userInfo);
+                        
+                        
+                        
+                    }];
 }
 -(void)setStore:(Store *)store
 {
