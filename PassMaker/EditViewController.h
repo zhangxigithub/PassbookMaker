@@ -12,7 +12,7 @@
 #import "ScanViewController.h"
 #import <PassKit/PassKit.h>
 
-@interface EditViewController : UIViewController<ScanViewControllerDelegate,UITextFieldDelegate,UIActionSheetDelegate,PKAddPassesViewControllerDelegate,UIAlertViewDelegate>
+@interface EditViewController : UITableViewController<ScanViewControllerDelegate,UITextFieldDelegate,UIActionSheetDelegate,PKAddPassesViewControllerDelegate,UIAlertViewDelegate>
 {
     MBProgressHUD *hud;
     UIActionSheet *action;
@@ -22,6 +22,9 @@
     NSString *code;
     NSString *type;
 }
+
+
+@property (weak, nonatomic) IBOutlet UITableView *table;
 @property(nonatomic,strong) Store *store;
 
 
