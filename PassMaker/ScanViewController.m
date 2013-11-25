@@ -173,8 +173,6 @@
     
     [self.navigationController popViewControllerAnimated:YES];
     [self.delegate didGetCode:symbolStr type:codeType];
-    
-
 }
 
 

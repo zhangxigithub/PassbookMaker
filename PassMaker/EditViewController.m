@@ -139,7 +139,6 @@
 //                              atScrollPosition:UITableViewScrollPositionTop
 //                                      animated:YES];
     }
-    
     return YES;
 }
 -(void)textFieldDidEndEditing:(UITextField *)textField
@@ -152,7 +151,17 @@
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    [textField resignFirstResponder];
+    
+    if(textField == self.nameTextFeild && [self.codeTextFeild.text isEqualToString:@""])
+    {
+        [self.codeTextFeild becomeFirstResponder];
+    }else
+    {
+        [textField resignFirstResponder];
+    }
+    
+    
+    
     return YES;
 }
 
