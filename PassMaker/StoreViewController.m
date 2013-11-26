@@ -35,7 +35,6 @@
 {
     [super viewDidLoad];
     localData = [[DataCenter sharedDataCenter] stores];
-	// Do any additional setup after loading the view.
 }
 
 

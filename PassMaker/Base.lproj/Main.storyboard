@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--Menu View Controller-->
+        <!--Menu View Controller - 会员卡-->
         <scene sceneID="1jE-b6-qsL">
             <objects>
                 <viewController id="ihj-lg-Uo0" customClass="MenuViewController" sceneMemberID="viewController">
@@ -16,21 +16,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A2J-0o-ugz">
-                                <rect key="frame" x="50" y="316" width="220" height="80"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A2J-0o-ugz">
+                                <rect key="frame" x="80" y="204" width="160" height="160"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Start">
+                                <state key="normal" image="start_button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="XWX-JH-koJ" kind="push" id="xKg-Jp-Epa"/>
                                 </connections>
                             </button>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="bar" translatesAutoresizingMaskIntoConstraints="NO" id="bBu-wW-Gbi">
+                                <rect key="frame" x="51" y="538" width="218" height="30"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bBu-wW-Gbi" firstAttribute="leading" secondItem="oo3-2c-2HP" secondAttribute="leading" constant="51" id="RUm-M8-VzA"/>
+                            <constraint firstItem="q7s-lG-qso" firstAttribute="top" secondItem="bBu-wW-Gbi" secondAttribute="bottom" id="ST2-Es-6a8"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="KjB-CD-vmp"/>
+                    <navigationItem key="navigationItem" title="会员卡" id="KjB-CD-vmp"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UqZ-lC-J7z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -377,7 +385,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bar" width="218" height="30"/>
         <image name="scan_bg" width="320" height="568"/>
+        <image name="start_button" width="160" height="160"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
