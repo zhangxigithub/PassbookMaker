@@ -503,7 +503,7 @@
 				GCC_PREFIX_HEADER = "PassMaker/PassMaker-Prefix.pch";
 				INFOPLIST_FILE = "PassMaker/PassMaker-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6DA71CFC-B447-465D-B6F5-4E448350359C";
+				PROVISIONING_PROFILE = "B179265A-53D0-4F12-81CF-0B8D54DEFC70";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -514,13 +514,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: zhang  xi (54TGPDSGF2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: zhang  xi (54TGPDSGF2)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PassMaker/PassMaker-Prefix.pch";
 				INFOPLIST_FILE = "PassMaker/PassMaker-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6DA71CFC-B447-465D-B6F5-4E448350359C";
+				PROVISIONING_PROFILE = "B179265A-53D0-4F12-81CF-0B8D54DEFC70";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
