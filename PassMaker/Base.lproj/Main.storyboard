@@ -16,9 +16,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A2J-0o-ugz">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A2J-0o-ugz">
                                 <rect key="frame" x="80" y="204" width="160" height="160"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="7ek-x6-aTt"/>
+                                    <constraint firstAttribute="width" constant="160" id="s5o-Ea-zvJ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" image="start_button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -28,14 +32,17 @@
                                 </connections>
                             </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="bar" translatesAutoresizingMaskIntoConstraints="NO" id="bBu-wW-Gbi">
-                                <rect key="frame" x="51" y="538" width="218" height="30"/>
+                                <rect key="frame" x="51" y="552" width="218" height="30"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="bBu-wW-Gbi" firstAttribute="leading" secondItem="oo3-2c-2HP" secondAttribute="leading" constant="51" id="RUm-M8-VzA"/>
-                            <constraint firstItem="q7s-lG-qso" firstAttribute="top" secondItem="bBu-wW-Gbi" secondAttribute="bottom" id="ST2-Es-6a8"/>
+                            <constraint firstAttribute="bottom" secondItem="bBu-wW-Gbi" secondAttribute="bottom" constant="-14" id="65C-P7-Lle"/>
+                            <constraint firstAttribute="centerX" secondItem="bBu-wW-Gbi" secondAttribute="centerX" id="BPo-bC-7bV"/>
+                            <constraint firstAttribute="centerY" secondItem="A2J-0o-ugz" secondAttribute="centerY" id="jnr-ix-y9p"/>
+                            <constraint firstAttribute="centerX" secondItem="A2J-0o-ugz" secondAttribute="centerX" id="kpu-gQ-Lol"/>
+                            <constraint firstItem="bBu-wW-Gbi" firstAttribute="centerX" secondItem="A2J-0o-ugz" secondAttribute="centerX" id="qtQ-T0-b7F"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="会员卡" id="KjB-CD-vmp"/>

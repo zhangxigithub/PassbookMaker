@@ -16,6 +16,7 @@
 #import <AFNetworking.h>
 #import <PassKit/PassKit.h>
 #import <MBProgressHUD.h>
+#import <MobClick.h>
 
 @implementation EditViewController
 
@@ -31,6 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [MobClick event:@"enter_edit"];
     input = NO;
     type = @"BCGcode128";
     [self setStore:_store];
@@ -56,7 +58,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if(indexPath.section == 2 && indexPath.row == 0)
     {
-        [self creat:nil];
+        [self create:nil];
     }
 }
 -(void)setStore:(Store *)store
@@ -199,6 +201,7 @@
     NSLog(@"%@",theCode);
     NSLog(@"%@",theType);
     
+    [self.view endEditing:YES];
     
     hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDModeIndeterminate;
@@ -223,6 +226,7 @@
              PKPass *pass = [[PKPass alloc] initWithData:operation.responseData error:&error];
              if(pass!= nil)
              {
+                 [MobClick event:@"do_create_success"];
                  PKAddPassesViewController *addVC = [[PKAddPassesViewController alloc] initWithPass:pass];
                  addVC.delegate = self;
                  [self presentViewController:addVC animated:YES completion:^{
@@ -275,9 +279,10 @@
 {
     [super didReceiveMemoryWarning];
 }
-- (IBAction)creat:(id)sender {
-    
-    if(code != nil && [code isEqualToString:@""] == NO)
+- (IBAction)create:(id)sender {
+    [MobClick event:@"do_create"];
+    if([self.codeTextFeild.text isEqualToString:@""] == NO &&
+       [self.nameTextFeild.text isEqualToString:@""] == NO )
     {
         [self creatPassbook:self.store.storeID
                        name:self.nameTextFeild.text

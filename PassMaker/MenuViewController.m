@@ -7,10 +7,7 @@
 //
 
 #import "MenuViewController.h"
-
-@interface MenuViewController ()
-
-@end
+#import <MobClick.h>
 
 @implementation MenuViewController
 
@@ -26,6 +23,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [MobClick event:@"enter_home"];
 }
 
 - (void)didReceiveMemoryWarning

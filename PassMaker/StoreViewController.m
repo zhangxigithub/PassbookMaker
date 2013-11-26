@@ -8,7 +8,7 @@
 
 #import "StoreViewController.h"
 #import "EditViewController.h"
-
+#import <MobClick.h>
 
 @implementation StoreViewController
 
@@ -34,6 +34,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [MobClick event:@"enter_list"];
     localData = [[DataCenter sharedDataCenter] stores];
 }
 

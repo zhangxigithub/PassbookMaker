@@ -33,6 +33,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *codeTextFeild;
 
 
-- (IBAction)creat:(id)sender;
+- (IBAction)create:(id)sender;
 
 @end
