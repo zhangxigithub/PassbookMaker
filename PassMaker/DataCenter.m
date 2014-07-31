@@ -11,7 +11,7 @@
 
 #import "DataCenter.h"
 #import <AFNetworking.h>
-
+#import <MobClick.h>
 
 @implementation DataCenter
 
@@ -32,15 +32,15 @@ static DataCenter *dataCenter;
     [manager GET:@"http://zxapi.sinaapp.com/passbook/update.php"
       parameters:nil
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
+             NSLog(@"JSON: %@", responseObject);
              
              [[NSUserDefaults standardUserDefaults] setObject:responseObject forKey:kStoreKey];
              [[NSUserDefaults standardUserDefaults] synchronize];
              
              
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-    }];
+         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             NSLog(@"Error: %@", error);
+         }];
 }
 -(NSArray *)defaultStores
 {
@@ -64,7 +64,16 @@ static DataCenter *dataCenter;
         [result addObject:store];
     }
     
-    [result addObject:[[Store alloc] initWithCustomStore]];
+    
+    //NSString *custom = [MobClick getConfigParams:@"PM_CUSTOM"];
+    //if(custom)
+    //{
+    //    BOOL needCustom = [[NSNumber numberWithInt:[custom intValue]] boolValue];
+    //    if(needCustom)
+    //    {
+            [result addObject:[[Store alloc] initWithCustomStore]];
+    //    }
+    //}
     return result;
 }
 -(NSArray *)stores

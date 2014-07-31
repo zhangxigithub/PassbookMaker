@@ -8,6 +8,7 @@
 
 #import "MenuViewController.h"
 #import <MobClick.h>
+#import "UMSocial.h"
 
 @implementation MenuViewController
 
@@ -24,6 +25,15 @@
 {
     [super viewDidLoad];
     [MobClick event:@"enter_home"];
+}
+- (IBAction)share:(id)sender {
+    
+    [UMSocialSnsService presentSnsIconSheetView:self
+                                         appKey:@"528e351256240bb52e06899a"
+                                      shareText:@"我在使用会员卡+存储会员卡 http://pgyer.com/passbook"
+                                     shareImage:[UIImage imageNamed:@"AppIcon"]
+                                shareToSnsNames:nil
+                                       delegate:nil];
 }
 
 - (void)didReceiveMemoryWarning

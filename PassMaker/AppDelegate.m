@@ -16,6 +16,7 @@
 {
     [[DataCenter sharedDataCenter] update];
     [MobClick startWithAppkey:@"528e351256240bb52e06899a"];
+    [MobClick updateOnlineConfig];
     return YES;
     
 
